@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace NeuralNetworkPackage
 {
-	public class SigmoidFunction : mathFunction
+	public class SigmoidFunction : MathFunction
 	{
 		public SigmoidFunction ()
 		{

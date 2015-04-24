@@ -7,7 +7,7 @@ namespace NeuralNetworkPackage
     {
         public LearningAlgorithm() { }
 
-        public abstract List<List<Neuron>> learn(double learningRate, List<double> input, List<double> output, List<List<Neuron>> network);
+        public abstract List<List<FeedfowardNeuron>> learn(double learningRate, List<double> input, List<double> output, List<List<FeedfowardNeuron>> network);
     }
 }
 

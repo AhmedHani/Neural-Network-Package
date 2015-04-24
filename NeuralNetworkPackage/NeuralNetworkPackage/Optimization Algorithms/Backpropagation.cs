@@ -7,14 +7,14 @@ namespace NeuralNetworkPackage
     {
         public Backpropagation() { }
 
-        public override List<List<Neuron>> learn(double learningRate, List<double> input, List<double> output, List<List<Neuron>> network)
+        public override List<List<FeedfowardNeuron>> learn(double learningRate, List<double> input, List<double> output, List<List<FeedfowardNeuron>> network)
         {
             // Backward "calculate Signal Error"
             for (int i = network.Count - 1; i >= 0; --i)
             {
                 for (int j = 0; j < network[i].Count; ++j)
                 {
-                    Neuron currentNeuron = network[i][j];
+                    FeedfowardNeuron currentNeuron = network[i][j];
 
                     if (i == network.Count - 1)
                     {
@@ -25,7 +25,7 @@ namespace NeuralNetworkPackage
                         double sum = 0;
                         for (int k = 0; k < network[i + 1].Count; ++k)
                         {
-                            Neuron nextNeuron = network[i + 1][k];
+                            FeedfowardNeuron nextNeuron = network[i + 1][k];
                             sum += (nextNeuron.Weights[j] * nextNeuron.SignalError);
                         }
                         currentNeuron.SignalError = sum * currentNeuron.ActivationFunction.derivative(currentNeuron.Net);

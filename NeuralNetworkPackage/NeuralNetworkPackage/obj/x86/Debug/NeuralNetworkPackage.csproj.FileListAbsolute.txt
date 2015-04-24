@@ -2,3 +2,4 @@ G:\Github Repositories\Neural-Network-Package\NeuralNetworkPackage\NeuralNetwork
 G:\Github Repositories\Neural-Network-Package\NeuralNetworkPackage\NeuralNetworkPackage\bin\Debug\NeuralNetworkPackage.exe
 G:\Github Repositories\Neural-Network-Package\NeuralNetworkPackage\NeuralNetworkPackage\bin\Debug\NeuralNetworkPackage.pdb
 G:\Github Repositories\Neural-Network-Package\NeuralNetworkPackage\NeuralNetworkPackage\obj\x86\Debug\NeuralNetworkPackage.pdb
+G:\Github Repositories\Neural-Network-Package\NeuralNetworkPackage\NeuralNetworkPackage\obj\x86\Debug\NeuralNetworkPackage.csprojResolveAssemblyReference.cache

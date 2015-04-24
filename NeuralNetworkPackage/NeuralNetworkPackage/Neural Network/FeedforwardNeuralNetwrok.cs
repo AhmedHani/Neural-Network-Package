@@ -8,7 +8,7 @@ namespace NeuralNetworkPackage
     {
         private int numOfLayers;
         private int numOfInput;
-        private List<List<Neuron>> network;
+        private List<List<FeedfowardNeuron>> network;
         private List<int> numOfNeuronsPerLayer;
 
         /// <summary>
@@ -20,7 +20,7 @@ namespace NeuralNetworkPackage
             if (numOfLayers < 2)
                 throw new Exception("Can't Initiate Network with lower than 2 layers");
             this.numOfLayers = numOfLayers;
-            this.network = new List<List<Neuron>>();
+            this.network = new List<List<FeedfowardNeuron>>();
         }
 
         /// <summary>
@@ -40,7 +40,7 @@ namespace NeuralNetworkPackage
 
             for (int i = 1; i < this.numOfLayers; ++i)
             {
-                this.network.Add(new List<Neuron>());
+                this.network.Add(new List<FeedfowardNeuron>());
             }
 
         }
@@ -51,14 +51,14 @@ namespace NeuralNetworkPackage
         /// <param name="layerIndex">Index of the layer the network [Base 1]</param>
         /// <param name="activationFunction">The activation function that will be used 
         /// in the output of each neuron in the layer.</param>
-        public void setLayer(int layerIndex, mathFunction activationFunction)
+        public void setLayer(int layerIndex, MathFunction activationFunction)
         {
             if (layerIndex == 0)
                 throw new Exception("Can't set Input Layer");
 
             for (int i = 0; i < this.numOfNeuronsPerLayer[layerIndex]; ++i)
             {
-                Neuron neuron = new Neuron(this.numOfNeuronsPerLayer[layerIndex - 1], activationFunction);
+                FeedfowardNeuron neuron = new FeedfowardNeuron(this.numOfNeuronsPerLayer[layerIndex - 1], activationFunction);
                 this.network[layerIndex - 1].Add(neuron);
             }
         }
@@ -95,7 +95,7 @@ namespace NeuralNetworkPackage
             {
                 for (int j = 0; j < this.numOfNeuronsPerLayer[i]; ++j)
                 {
-                    nextInput.Add(this.network[i - 1][j].feedforward(currentInput));
+                    nextInput.Add(this.network[i - 1][j].computeOutput(currentInput));
                 }
                 // Prepare input to next layer
                 currentInput = nextInput;

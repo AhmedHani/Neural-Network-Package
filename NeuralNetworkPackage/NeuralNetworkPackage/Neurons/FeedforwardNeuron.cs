@@ -1,17 +1,18 @@
-﻿using System;
+﻿using NeuralNetworkPackage.Neurons;
+using System;
 using System.Collections.Generic;
 
 
 namespace NeuralNetworkPackage
 {
-    public class Neuron
+    public class FeedfowardNeuron : Neuron
     {
         private List<double> weights;
         private double bias;
         private List<double> input;
         private double net;
         private double output;
-        private mathFunction activationFunction;
+        private MathFunction activationFunction;
         private double signalError;
 
         public List<double> Weights
@@ -39,25 +40,25 @@ namespace NeuralNetworkPackage
             set { this.signalError = value; }
             get { return this.signalError; }
         }
-        public mathFunction ActivationFunction
+        public MathFunction ActivationFunction
         {
             get { return this.activationFunction; }
         }
 
         /*Constructors*/
-        public Neuron(int numOfinput, mathFunction activationFunction)
+        public FeedfowardNeuron(int numOfinput, MathFunction activationFunction)
         {
             this.activationFunction = activationFunction;
             this.init(numOfinput);
         }
-        public Neuron(List<double> weights, mathFunction activationFunction)
+        public FeedfowardNeuron(List<double> weights, MathFunction activationFunction)
         {
             this.activationFunction = activationFunction;
             this.init(weights.Count);
 
             this.weights = weights;
         }
-        public Neuron(List<double> weights, double bias, mathFunction activationFunction)
+        public FeedfowardNeuron(List<double> weights, double bias, MathFunction activationFunction)
         {
             this.activationFunction = activationFunction;
             this.init(weights.Count);
@@ -95,7 +96,7 @@ namespace NeuralNetworkPackage
 
             return result;
         }
-        public double feedforward(List<double> input)
+        public override double computeOutput(List<double> input)
         {
             this.input = input;
 
